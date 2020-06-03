@@ -1,0 +1,13 @@
+.block {
+  min-height: 4vh;
+  background: black;
+  border-radius: 5px;
+  border: solid 1px rgba(235, 235, 235, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  white-space: pre-wrap;
+}
