@@ -15,12 +15,16 @@ npm install react-interactive-code-block
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-interactive-code-block'
+import CodeBlock from 'react-interactive-code-block'
 import 'react-interactive-code-block/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <CodeBlock
+      message={'Interactive code block 😄'}
+      typing
+      speed={30}
+      />
   }
 }
 ```
