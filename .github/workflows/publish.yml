@@ -13,7 +13,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 10
-      - run: yarn test
+      - run: |
+          yarn install
+          yarn test
 
   publish-npm:
     needs: test
