@@ -11,3 +11,24 @@
   align-items: center;
   white-space: pre-wrap;
 }
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+  border: none;
+}
+
+.img {
+  height: 4vh;
+}
