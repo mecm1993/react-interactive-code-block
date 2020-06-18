@@ -1,4 +1,4 @@
-name: bump version and merge into develop
+name: CI, bump version and merge into develop
 
 on:
   push:
@@ -6,16 +6,20 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      - run: |
+          yarn install
+          yarn test
+
   bump-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for build to succeed
-        uses: fountainhead/action-wait-for-check@v1.0.0
-        id: wait-for-build
-        with:
-          token: ${{ secrets.OSD_GH_TOKEN }}
-          checkName: publish package
-          ref: ${{ github.sha }}
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
@@ -24,12 +28,7 @@ jobs:
         name:  'Automated Version Bump'
         if: steps.wait-for-build.outputs.conclusion == 'success'
         env:
-          GITHUB_TOKEN: ${{secrets.OSD_GH_TOKEN}}
-      - uses: styfle/cancel-workflow-action@0.4.0
-        name: Cancel Current Run
-        if: steps.wait-for-build.outputs.conclusion == 'failed'
-        with:
-          ACCESS_TOKEN: ${{secrets.OSD_GH_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.OSD_GH_TOKEN }}
   
   merge-develop:
     needs: bump-version
@@ -41,5 +40,4 @@ jobs:
           type: now
           target_branch: 'develop'
         env:
-          GITHUB_TOKEN: ${{secrets.OSD_GH_TOKEN}}
-  
+          GITHUB_TOKEN: ${{ secrets.OSD_GH_TOKEN }}
