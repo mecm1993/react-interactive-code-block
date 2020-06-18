@@ -1,20 +1,28 @@
 name: bump version and merge into develop
 
 on:
-  completion:
-    success:
-      - publish package
+  push:
+    branches:
+      - master
 
 jobs:
   bump-version:
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for build to succeed
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: wait-for-build
+        with:
+          token: ${{ secrets.OSD_GH_TOKEN }}
+          checkName: publish package
+          ref: ${{ github.sha }}
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 10
       - uses:  'phips28/gh-action-bump-version@master'
         name:  'Automated Version Bump'
+        if: steps.wait-for-build.outputs.conclusion == 'success'
         env:
           GITHUB_TOKEN: ${{secrets.OSD_GH_TOKEN}}
   
