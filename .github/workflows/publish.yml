@@ -42,5 +42,5 @@ jobs:
           scope: '@mecm1993'
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.OSD_GH_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.OSD_GH_TOKEN}}
   
