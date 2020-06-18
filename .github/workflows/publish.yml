@@ -8,7 +8,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: '10.x'
         registry-url: 'https://npm.pkg.github.com'
-        scope: '@octocat'
+        scope: '@mecm1993'
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.OSD_GH_TOKEN }}
