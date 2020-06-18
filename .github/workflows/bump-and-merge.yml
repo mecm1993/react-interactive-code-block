@@ -25,6 +25,11 @@ jobs:
         if: steps.wait-for-build.outputs.conclusion == 'success'
         env:
           GITHUB_TOKEN: ${{secrets.OSD_GH_TOKEN}}
+      - uses: styfle/cancel-workflow-action@0.4.0
+        name: Cancel Current Run
+        if: steps.wait-for-build.outputs.conclusion == 'failed'
+        with:
+          ACCESS_TOKEN: ${{secrets.OSD_GH_TOKEN}}
   
   merge-develop:
     needs: bump-version
