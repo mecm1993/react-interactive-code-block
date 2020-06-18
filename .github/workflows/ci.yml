@@ -17,11 +17,11 @@ jobs:
           yarn install
           yarn test
 
-  bump-version:
+  bump-version-and-merge-develop:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 10
@@ -29,11 +29,6 @@ jobs:
         name:  'Automated Version Bump'
         env:
           GITHUB_TOKEN: ${{ secrets.OSD_GH_TOKEN }}
-  
-  merge-develop:
-    needs: bump-version
-    runs-on: ubuntu-latest
-    steps:
       - uses: devmasx/merge-branch@v1.1.0
         name: Merge to develop branch
         with:
