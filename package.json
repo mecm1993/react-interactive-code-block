@@ -1,6 +1,6 @@
 {
   "name": "react-interactive-code-block",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "React interactive code block component",
   "author": "mecm1993",
   "license": "MIT",
@@ -17,8 +17,9 @@
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
+    "clean": "rimraf dist",
+    "build": "microbundle-crl build",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs,es",
     "test": "run-s test:unit test:lint",
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom --updateSnapshot",
