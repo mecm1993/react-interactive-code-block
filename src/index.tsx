@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styles from './styles.module.css'
-import copyImg from './assets/copy.png'
 
 interface CodeBlockProps {
   message: string,
@@ -52,7 +51,7 @@ const renderComponent = (text: string, icon?: string, className?: string, style?
         >
           <img
             className={styles.img}
-            src={icon ? icon : copyImg}
+            src={icon ? icon : 'https://rb.gy/c9wi3z'}
           />
         </button>
       </div>

@@ -1,4 +1,4 @@
-name: Continuous Integration, bump version and merge into develop
+name: Continuous Integration
 
 on:
   push:
@@ -16,17 +16,3 @@ jobs:
       - run: |
           yarn install
           yarn test
-
-  bump-version:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - run: git checkout develop
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 10
-      - uses:  'phips28/gh-action-bump-version@master'
-        name:  'Automated Version Bump'
-        env:
-          GITHUB_TOKEN: ${{ secrets.OSD_GH_TOKEN }}
