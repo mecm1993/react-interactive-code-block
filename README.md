@@ -1,7 +1,7 @@
 # React Interactive Code Block Component
 
 [![NPM](https://img.shields.io/npm/v/react-interactive-code-block.svg)](https://www.npmjs.com/package/react-interactive-code-block) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/mecm1993/react-interactive-code-block/master/LICENSE)
-[![Known Vulnerabilities](https://snyk.io/test/github/mecm1993/react-interactive-code-block/badge.svg)](https://snyk.io/test/github/mecm1993/react-interactive-code-block)
+[![Known Vulnerabilities](https://snyk.io/test/github/mecm1993/react-interactive-code-block/badge.svg)](https://snyk.io/test/github/mecm1993/react-interactive-code-block)[![Downloads](https://img.shields.io/npm/dt/react-interactive-code-block.svg)](https://www.npmjs.com/package/react-interactive-code-block)
 
 ## Install
 
@@ -13,6 +13,7 @@ npm install --save react-interactive-code-block
 
 ```tsx
 import CodeBlock from 'react-interactive-code-block'
+import 'react-interactive-code-block/dist/index.css'
 
 class Example extends Component {
   render() {
@@ -24,6 +25,9 @@ class Example extends Component {
   }
 }
 ```
+## Examples
+
+<img src="./docs/ricd.gif" width="300">
 
 ## License
 
