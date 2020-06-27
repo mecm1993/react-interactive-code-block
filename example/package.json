@@ -6,7 +6,7 @@
   "dependencies": {
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
-    "react-interactive-code-block": "^1.2.3",
+    "react-interactive-code-block": "^1.2.4",
     "react-scripts": "link:../node_modules/react-scripts"
   },
   "scripts": {
