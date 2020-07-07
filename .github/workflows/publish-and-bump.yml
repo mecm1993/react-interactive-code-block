@@ -1,8 +1,8 @@
-name: Publish Package and Bump Version
+name: Publish Package
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   publish:
@@ -16,19 +16,6 @@ jobs:
       - run: |
           yarn install
           yarn build
-          yarn publish
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  bump-version:
-    needs: publish
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 10
-      - uses:  'phips28/gh-action-bump-version@master'
-        name:  'Automated Version Bump'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
