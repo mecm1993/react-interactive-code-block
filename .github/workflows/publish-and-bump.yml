@@ -2,7 +2,7 @@ name: Publish Package and Bump Version
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
   publish:
