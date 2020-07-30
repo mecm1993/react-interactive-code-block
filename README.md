@@ -49,4 +49,4 @@ class Example extends Component {
 
 ## License
 
-[MIT]((https://raw.githubusercontent.com/mecm1993/react-interactive-code-block/master/LICENSE)) © mecm1993
+[MIT](./LICENSE) © mecm1993
